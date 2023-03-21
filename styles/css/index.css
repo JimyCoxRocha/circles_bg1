@@ -1,0 +1,62 @@
+html, body {
+  background-color: #000;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+}
+
+div {
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  position: fixed;
+}
+
+.circ--1 {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+
+.circ--2 {
+  width: 140px;
+  height: 140px;
+  background-color: blue;
+}
+
+.circ--3 {
+  width: 60px;
+  height: 60px;
+  background-color: green;
+}
+
+.circ--4 {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+}
+
+.circ--5 {
+  width: 60px;
+  height: 60px;
+  background-color: black;
+}
+
+.circ--6 {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+}
+
+/*
+    IMPORTANT CONFIGURATION TO THIS PROJECT WITH THE COMPLEMENT SASS LIVE SREVER COMPILER
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.formats":[
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "~/css/"
+        }
+    ]
+
+*/
