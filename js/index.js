@@ -1,13 +1,9 @@
-import { circleShowPosition } from "./randomGeneration.js";
 
 
-const circle = document.querySelectorAll('div');
+import ElementManagement from "./elementsManagement.js";
+import { fireRealtimeData } from "./firebaseManagement.js";
 
-setInterval(() => {
-    console.log(circleShowPosition);
-    circle.forEach(function circle(myclass) {
-        const [ top, left ] = circleShowPosition();
-        myclass.style.top = top +"px";
-        myclass.style.left = left +"px";
-    });
-}, 100);
+
+fireRealtimeData(async (detailObject) => {
+    await ElementManagement(detailObject)
+})

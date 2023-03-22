@@ -1,50 +1,22 @@
 @import 'config.scss';
+@import 'circle.scss';
 
 html, body {
     background-color: $background-color;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9500175070028011) 49%, rgba(0,0,0,0.7987570028011204) 100%);
     height: 100vh;
     width: 100vw;
     margin: 0px;
     padding: 0px; 
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
-div{
-    border-radius:50%;
-    mix-blend-mode: difference;
-    position:fixed;
-  }
-  
-  .circ--1 {
-  width: 200px;
-  height:200px;
-  background-color:red;  
-  }
-  
-  .circ--2 {
-  width: 140px;
-  height:140px;
-  background-color:blue;
-  }
-  .circ--3 {
-  width: 60px;
-  height:60px;
-  background-color:green;   
-  }
-  .circ--4 {
-  width: 100px;
-  height:100px;
-  background-color:yellow;    
-  }
-  .circ--5 {
-  width: 60px;
-  height:60px;
-  background-color:black;   
-  }
-  .circ--6 {
-  width: 70px;
-  height:70px;
-  background-color:white;    
-  }
+#page-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
   
 /*
     IMPORTANT CONFIGURATION TO THIS PROJECT WITH THE COMPLEMENT SASS LIVE SREVER COMPILER
