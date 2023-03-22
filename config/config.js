@@ -8,7 +8,7 @@ export const Config = {
         MAX_ITERATION: 150
     },
     database: {
-        name: 'databasee'
+        name: '/'
     },
     circleConfig: {
         duration:15000, //ms

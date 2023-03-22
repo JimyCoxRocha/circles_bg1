@@ -183,14 +183,15 @@ const deleteElementTimer = (divElement, Height, Width) => {
 }
 
 let colorCircles = 0;
-const addNewElement  = async (detailObject) => {
+const addNewElement  = async ({title, subtitle}) => {
+    debugger;
     console.log(Config.circleConfig.color.length);
     const divElement = createDivElement(COLORS[colorCircles]);
 
     const divContainerElement = createDivContainer();
     debugger;
     const divStyle = createDivStyle(COLORS[colorCircles]);
-    const textCircle = createTextCircle("Peloteo", "chao");
+    const textCircle = createTextCircle(title, subtitle);
     colorCircles = colorCircles + 1;
     if(colorCircles >= Config.circleConfig.color.length )
         colorCircles = 0;

@@ -25,6 +25,7 @@ export const fireRealtimeData = async (callback)  => {
 
     try {
         const firstTotalData = await get(dbRef).then((snapshot) => {
+            
             return snapshot.exists() ? snapshot.val() : 0;
           }).catch(() => {
             return 0
@@ -42,6 +43,9 @@ export const fireRealtimeData = async (callback)  => {
         }
         
         const data = snapshot.val();
-        await callback(data)
+        await callback({
+            title: data.CircleName,
+            subtitle: data.CreatorName
+        })
     });
 }
