@@ -61,13 +61,14 @@ const createTextCircle = (titleText, subText) => {
 
 const handleCircleShown = (divElement, Height, Width) => {
     try {
-        const minAnim = 10;
-        const maxAnim = 20;
+        const minAnim = 25;
+        const maxAnim = 28;
         const circlesShown = JSON.parse(LocalStorageBG.GetData(LS_CIRCLES_SHOWN) || "[]" );
         const dataa = document.getElementById(divElement.id);
         
         dataa.className = dataa.className + " circle-final-animation";
-        const durationAnim = Math.floor(((Math.random() * maxAnim) + minAnim));
+        //Math.random() * (max - min) + min;
+        const durationAnim = Math.floor(Math.random() * ( maxAnim - minAnim) + minAnim);
         dataa.style.animation = "finalAnimation "+  durationAnim + "s " + TAMING_FUNCTION[tamingFunctionCircles] + " infinite"
 
 

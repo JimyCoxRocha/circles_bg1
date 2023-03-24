@@ -18,10 +18,6 @@ export const Config = {
             "#ffffff"
         ],
         tamingFunction: [
-            "ease",
-            "cubic-bezier(0,-0.01,1,1.01)",
-            "cubic-bezier(0,-0.01,1,1.01)",
-            "cubic-bezier(0,-0.01,1,1.01)",
             "linear",
         ]
     }

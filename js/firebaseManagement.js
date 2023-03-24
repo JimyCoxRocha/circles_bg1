@@ -3,13 +3,13 @@ import { getDatabase, ref, onValue, get, onChildAdded } from "https://www.gstati
 import { Config, Utils } from "../config/config.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAdLpM6P1Qn9R_dQmnb_dvp19lZv5-mA6A",
-    authDomain: "bg-test-df800.firebaseapp.com",
-    databaseURL: "https://bg-test-df800-default-rtdb.firebaseio.com",
-    projectId: "bg-test-df800",
-    storageBucket: "bg-test-df800.appspot.com",
-    messagingSenderId: "805694285036",
-    appId: "1:805694285036:web:1ee4dbff91e23bf5d231c9"
+    apiKey: "AIzaSyAsxWtJaox9mU4tDUm6qLZvdj5-9yNMmGs",
+    authDomain: "reinvention-7dce9.firebaseapp.com",
+    databaseURL: "https://reinvention-7dce9-default-rtdb.firebaseio.com",
+    projectId: "reinvention-7dce9",
+    storageBucket: "reinvention-7dce9.appspot.com",
+    messagingSenderId: "108205719564",
+    appId: "1:108205719564:web:b60cebcea17a5e0e71ee29"
 };
   
 
@@ -43,9 +43,17 @@ export const fireRealtimeData = async (callback)  => {
         }
         
         const data = snapshot.val();
-        await callback({
-            title: data.CircleName || "",
-            subtitle: data.CreatorName || ""
-        })
+        if(data.nombreGrupo){
+            let groupName = "";
+            try {
+                groupName = data.nombreGrupo.length >= 30 ? data.nombreGrupo.trim().substring(0, 27) + "..." : data.nombreGrupo;
+            } catch (error) {
+                groupName = data.nombreGrupo;
+            }
+            await callback({
+                title: groupName,
+                subtitle: data.nombreOrigen || ""
+            })
+        }
     });
 }
