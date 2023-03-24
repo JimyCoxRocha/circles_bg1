@@ -11,17 +11,18 @@ export const Config = {
         name: '/'
     },
     circleConfig: {
-        duration:15000, //ms
+        duration:5000, //ms
         showRecursive: true,
         minCirclesShow: 4,
         color: [
-            "#d99445", 
-            "#85C1E9",
-            "#A3E4D7",
-            "#D7BDE2",
-            "#D6EAF8",
-            "#F9E79F",
-            "#A04000"
+            "#ffffff"
+        ],
+        tamingFunction: [
+            "ease",
+            "cubic-bezier(0,-0.01,1,1.01)",
+            "cubic-bezier(0,-0.01,1,1.01)",
+            "cubic-bezier(0,-0.01,1,1.01)",
+            "linear",
         ]
     }
 }

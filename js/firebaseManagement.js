@@ -44,8 +44,8 @@ export const fireRealtimeData = async (callback)  => {
         
         const data = snapshot.val();
         await callback({
-            title: data.CircleName,
-            subtitle: data.CreatorName
+            title: data.CircleName || "",
+            subtitle: data.CreatorName || ""
         })
     });
 }
