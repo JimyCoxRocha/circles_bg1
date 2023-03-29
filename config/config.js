@@ -5,7 +5,7 @@ export const Config = {
         CIRCLES_REPEAT_SHOWS: "CIRCLES_REPEAT_SHOWS",
     },
     randomGeneration: {
-        MAX_ITERATION: 150
+        MAX_ITERATION: 250
     },
     database: {
         name: '/'

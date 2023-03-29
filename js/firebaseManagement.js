@@ -16,12 +16,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
+let circlesSleepFirstSession = 0;
 
 
 export const fireRealtimeData = async (callback)  => {
     const dbRef  = ref(database, Config.database.name);
     let firstTotalDataCount = 0;
-    let circlesSleepFirstSession = 0;
+    
 
     try {
         const firstTotalData = await get(dbRef).then((snapshot) => {
@@ -39,21 +40,37 @@ export const fireRealtimeData = async (callback)  => {
     return onChildAdded(dbRef, async (snapshot) => {
         circlesSleepFirstSession += 1;
         if(circlesSleepFirstSession < firstTotalDataCount){
-            await Utils.Sleep(1000 * circlesSleepFirstSession)
+            setTimeout(async () => {
+                console.log("tiemeout");
+                const data = snapshot.val();
+                if(data.nombreGrupo){
+                    let groupName = "";
+                    try {
+                        groupName = data.nombreGrupo.length >= 30 ? data.nombreGrupo.trim().substring(0, 27) + "..." : data.nombreGrupo;
+                    } catch (error) {
+                        groupName = data.nombreGrupo;
+                    }
+                    await callback({
+                        title: groupName,
+                        subtitle: data.nombreOrigen || ""
+                    })
+                }
+            }, 2000 * circlesSleepFirstSession);
+        }else{
+            const data = snapshot.val();
+            if(data.nombreGrupo){
+                let groupName = "";
+                try {
+                    groupName = data.nombreGrupo.length >= 30 ? data.nombreGrupo.trim().substring(0, 27) + "..." : data.nombreGrupo;
+                } catch (error) {
+                    groupName = data.nombreGrupo;
+                }
+                await callback({
+                    title: groupName,
+                    subtitle: data.nombreOrigen || ""
+                })
+            }
         }
         
-        const data = snapshot.val();
-        if(data.nombreGrupo){
-            let groupName = "";
-            try {
-                groupName = data.nombreGrupo.length >= 30 ? data.nombreGrupo.trim().substring(0, 27) + "..." : data.nombreGrupo;
-            } catch (error) {
-                groupName = data.nombreGrupo;
-            }
-            await callback({
-                title: groupName,
-                subtitle: data.nombreOrigen || ""
-            })
-        }
     });
 }

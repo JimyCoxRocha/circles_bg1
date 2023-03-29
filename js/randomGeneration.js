@@ -34,9 +34,9 @@ const searchNewPosition = (randomHeight, randomWidth) => {
                     const BHeight = randomHeight;
                     
                     if (
-                        (AWidth > (BWidth + window.innerHeight * 0.15) || BWidth > (AWidth + window.innerHeight * 0.15))
+                        (AWidth > (BWidth + window.innerHeight * 0.15) || AWidth < (BWidth + window.innerHeight))
                         &&
-                        (AHeight > (BHeight + window.innerHeight * 0.15) || BHeight > (AHeight + window.innerHeight * 0.15))
+                        (AHeight > (BHeight + window.innerHeight * 0.15) || AHeight < (BHeight + window.innerHeight))
                     ){
                         continue;
                     }
