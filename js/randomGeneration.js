@@ -25,7 +25,7 @@ const searchNewPosition = (randomHeight, randomWidth) => {
         }else{
             
             for (var i = 0; i < documetss.length; i++) {
-                
+                 
                 if( !documetss[i].firstElementChild?.style?.display || documetss[i].firstElementChild.style.display !== "none"){
                     const AHeight = (documetss[i].style.top.split("px"))[0];
                     const AWidth = (documetss[i].style.left.split("px"))[0];
